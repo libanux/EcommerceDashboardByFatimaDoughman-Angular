@@ -1,0 +1,34 @@
+@use '@angular/material'as mat;
+@include mat.core();
+$custom-primary-color: (50: var(--primary-color), contrast: ());
+$custom-accent-color: (50: var(--accent-color), contrast: ());
+$custom-warn-color: (50: var(--warn-color), contrast: ());
+$custom-firstTemplate-color: (50: var(--firstTemplate-color), contrast: ());
+$custom-secondTemplate-color: (50: var(--secondTemplate-color), contrast: ());
+$custom-thirdTemplate-color: (50: var(--thirdTemplate-color), contrast: ());
+$primary: mat.define-palette($custom-primary-color, 50, 50, 50);
+$accent: mat.define-palette($custom-accent-color, 50, 50, 50);
+$warn: mat.define-palette($custom-warn-color, 50, 50, 50);
+$firstTemplate: mat.define-palette($custom-firstTemplate-color, 50, 50, 50);
+$secondTemplate: mat.define-palette($custom-secondTemplate-color, 50, 50, 50);
+$thirdTemplate: mat.define-palette($custom-thirdTemplate-color, 50, 50, 50);
+$theme: mat.define-light-theme((color: (primary: $primary, accent: $accent, warn: $warn, firstTemplate: $firstTemplate, secondTemplate: $secondTemplate, thirdTemplate: $thirdTemplate), typography: mat.define-typography-config(), density: 0, ));
+@include mat.core-theme($theme);
+@include mat.all-component-themes($theme);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+    --primary-color: #26A4FF;
+    --accent-color: #4640DE;
+    --success-color: #199E52;
+    --warn-color: #FE0000;
+    --firstTemplate-color: #6D509B;
+    --secondTemplate-color: #B29E9F;
+    --thirdTemplate-color: #389B87;
+    --swiper-navigation-color: #4640DE;
+    --swiper-theme-color: #4640DE;
+    --swiper-pagination-color: #4640DE;
+}

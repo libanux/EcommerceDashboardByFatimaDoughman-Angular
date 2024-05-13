@@ -1,0 +1,107 @@
+.arabic-text {
+  direction: rtl;
+  text-align: right;
+}
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.sun::before {
+  content: "\2600";
+}
+
+.moon::before {
+  content: "\1F319";
+}
+
+
+.dark-mode .bg-neutral-400 {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .label{
+  background-color: #d7c3c3;
+}
+
+
+
+/*
+@media only screen  and (max-width: 640px) {
+  .btn-small {
+    font-size: 16px;
+    padding: 4px 12px;
+  }
+.login-form{
+  width: 70%;
+  height: 50%;
+  padding: 4x;
+  align-content: center;
+}
+}
+
+
+
+@media only screen  and (min-width: 1024px) {
+  .btn-small {
+    font-size: 16px;
+    padding: 4px 12px;
+  }
+.login-form{
+  width: 30%;
+  height: 50%;
+  padding: 4x;
+  align-content: center;
+}
+}
+
+
+@media only screen and (max-width: 1025px) and(min-width:340px){
+  .btn-small {
+    font-size: 16px;
+    padding: 4px 12px;
+  }
+.login-form{
+  width: 80%;
+  height: 45%;
+  padding: 6px;
+  align-content: center;
+}
+.toggle{
+  margin-right: 160px;
+
+} */
+/* } */
+
+.dark-mode {
+  background-color: #050619;
+  color: #ffffff;
+}
+
+
+.dark-mode .login-form {
+  border: 2px solid #000000;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.dark-mode .login-form label {
+  color: #a6a6a6;
+}
+
+.required{
+color: red;
+}
+.gray-button {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+
+

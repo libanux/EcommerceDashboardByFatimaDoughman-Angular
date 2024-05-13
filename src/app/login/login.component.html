@@ -1,0 +1,25 @@
+<div class="flex items-center justify-center bg-neutral-400 h-screen w-full relative dark-mode"  [ngClass]="{'dark-mode': isDarkMode}">
+  <div class="justify-end flex absolute top-0 right-0 p-4 w-[20%] btn-small">
+    <button (click)="switchLang('en')" class="bg-transparent text-primary hover:bg-primary hover:text-white font-semibold px-4 py-2 rounded border border-primary mr-2 ">English</button>
+    <button (click)="switchLang('ar')" class="bg-transparent text-primary hover:bg-primary hover:text-white font-semibold px-4 py-2 rounded border border-primary ">Arabic</button>
+  </div>
+  <app-dark-light_mode class="h-full flex toggle" ></app-dark-light_mode>
+  <div class="p-4 rounded-lg shadow-md w-[30%]  h-[40%] border border-primary bg-white absolute  login-form" [ngClass]="{'dark-mode': isDarkMode}">
+    <h2 class="text-2xl font-semibold text-center mb-4" [ngClass]="{ 'arabic-text': isArabic }" >{{ 'login' | translate }}</h2>
+    <form [formGroup]="fg" #loginForm="ngForm">
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-700" [ngClass]="{ 'arabic-text': isArabic }">{{ 'email' | translate }}</label>
+        <input type="email" id="username" name="username" class="mt-1 block w-full border-primary rounded-md border p-2 input h-[10%]" formControlName="email">
+          @if (fg.get('email')!.invalid && (fg.get('email')!.dirty || fg.get('email')!.touched || loginForm.submitted)){<div class="required text-sm" [ngClass]="{ 'arabic-text': isArabic }">{{ 'Email is required' | translate }}</div>}
+        </div>
+      <div class="mb-4">
+        <label for="password" class="block text-sm font-medium text-gray-700" [ngClass]="{ 'arabic-text': isArabic }">{{ 'password' | translate }}</label>
+        <input type="password" id="password" name="password" class="mt-1 block w-full border-primary rounded-md border p-2 input  h-[10%]" formControlName="password" required="email">
+        @if (fg.get('password')!.invalid && (fg.get('password')!.dirty || fg.get('password')!.touched || loginForm.submitted)){<div class="required text-sm" [ngClass]="{ 'arabic-text': isArabic }">{{ 'Password is required' | translate }}</div>}
+      </div>
+      <div class="flex items-center justify-center">
+        <button type="submit" class="bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-4 rounded" (click)="loginbtn()" [disabled]="fg.invalid" [ngClass]="{ 'gray-button': fg.invalid }">{{ 'login' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

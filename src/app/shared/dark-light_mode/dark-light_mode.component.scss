@@ -1,0 +1,70 @@
+
+.rounded-toggle {
+  position: relative;
+  display: inline-block;
+  margin-top: 14px;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.circle-toggle {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  background-color: white; /* Changed background color to white */
+  border-radius: 20px; /* Adjust border-radius for roundness */
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: space-between; /* Distribute content evenly */
+  padding: 0 8px; /* Adjust padding for spacing */
+  box-shadow: 0 0 10px rgba(29, 29, 29, 0.5); /* Added shadow effect */
+}
+
+.circle-toggle::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(223, 223, 223); /* Changed circle color to light gray */
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-checkbox:checked + .circle-toggle::before {
+  transform: translateX(40px); /* Adjusted translation to match new width */
+
+}
+
+.toggle-checkbox:checked + .circle-toggle .sun {
+  color:rgb(242, 230, 60)/* Changed sun color to yellow when checked */
+}
+
+.toggle-checkbox:checked + .circle-toggle .moon {
+  color: rgb(4, 4, 4); /* Changed moon color to white when checked */
+}
+
+.sun {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 4px;
+  color:  rgb(242, 230, 60);/* Set default color for both sun and moon */
+}
+
+.moon {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 4px;
+  color: rgb(0, 0, 0); /* Set default color for both sun and moon */
+}
+
+// Import Angular Material and define custom dark theme
+
+

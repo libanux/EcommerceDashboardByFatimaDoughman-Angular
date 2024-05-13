@@ -1,0 +1,45 @@
+<div class="w-full bg-neutral-400 flex overflow-y-auto" [ngClass]="{'dark-mode': isDarkMode}">
+  <div class="justify-start flex bg-white flex-col border-r-neutral-500 border-r-2 gap-4 p-4 " [ngClass]="{'dark-mode': isDarkMode}">
+<app-dark-light_mode class=" flex ml-14 " ></app-dark-light_mode>
+  <div class="flex items-center   gap-2">
+  <img src="assets\logo.png" width="20%">
+  <span class="text-3xl font-sans font-bold tracking-wider ">Groth</span>
+  </div>
+
+<button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start pr-16 pl-3 hover:text-white gap-2 text-neutral-700"
+ [class.bg-primary]="activeSection === 'dashboard'"
+ [class.text-white]="activeSection === 'dashboard'"
+ (click)="setActiveSection('dashboard')">
+ <span class="material-symbols-outlined ">home</span>
+ <p class="text-base text-neutral-700 mt-0 flex" (click)="ondashboard()" [class.text-white]="activeSection === 'dashboard'"> Dashboard </p>
+</button>
+
+<button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start px-3 hover:text-white gap-2 text-neutral-700"
+[class.bg-primary]="activeSection === 'analytics'"
+[class.text-white]="activeSection === 'analytics'"
+(click)="setActiveSection('analytics')">
+<span class="material-symbols-outlined ">analytics</span>
+  <p class="text-base text-neutral-700 mt-0 flex" (click)="onanalytics()" [class.text-white]="activeSection === 'analytics'"> Analytics </p>
+</button>
+<button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start px-3 hover:text-white gap-2 text-neutral-700"><span class="material-symbols-outlined ">package_2</span>
+  <p class="text-base text-neutral-700 mt-0 flex"> Products </p>
+</button>
+<button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start px-3 hover:text-white gap-2 text-neutral-700"><span class="material-symbols-outlined ">local_shipping</span>
+  <p class="text-base text-neutral-700 mt-0 flex"> Orders </p>
+</button>
+<button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start px-3 hover:text-white gap-2 text-neutral-700 mb-16"><span class="material-symbols-outlined ">settings</span>
+  <p class="text-base text-neutral-700 mt-0 flex "> Setting </p>
+</button>
+<hr class="text-neutral-500 border-1">
+<button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start px-3 hover:text-white gap-2 text-neutral-700"><span class="material-symbols-outlined ">person_book</span>
+  <p class="text-base text-neutral-700 mt-0 flex"> Users </p>
+</button>
+<button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start px-3 hover:text-white gap-2 text-neutral-700"><span class="material-symbols-outlined ">logout</span>
+  <p class="text-base text-neutral-700 mt-0 flex"> Logout</p>
+</button>
+</div>
+<div class="w-full ">
+   <router-outlet></router-outlet>
+  </div>
+</div>
+
