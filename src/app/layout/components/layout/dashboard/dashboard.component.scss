@@ -19,17 +19,20 @@
 }
 
 .dark-mode table {
-  color: gray;
-  background-color: #050619;
+  color: rgb(255, 255, 255);
+  background-color:#232323;
+
+
 }
-.dark-mode .table {
-  color: gray;
-  background-color: #050619;
+.dark-mode .table1 {
+  color: rgb(255, 255, 255);
+  background-color:#232323;
+
 }
 
 .dark-mode td{
-  color: gray;
-  background-color: #050619;
+  color: rgb(255, 255, 255);
+  background-color:#232323;
 }
 .prod{
 color: #037400;
@@ -39,12 +42,52 @@ width: 30px;
 border-radius:6px;
 }
 .dark-mode .product{
-  color: gray;
-  background-color: #050619;
+  color: rgb(0, 0, 0);
+  background-color:#232323;
+  border: #555555 solid 1px;
 }
-.dark-mode input{
-  color: gray;
-  background-color: #050619;
+.dark-mode .input{
+border: #232323;
+  background-color:black;
 }
+.dark-mode .option1{
+  color: rgb(255, 255, 255);
+  background-color: #232323;
+  border: #555555 solid 1px;
+}
+
+.dark-mode .option2{
+  color: white;
+  background-color: #232323;
+  border: #555555 solid 1px;
+}
+.dark-mode .option3{
+  color: white;
+  background-color: #232323;
+  border: #555555 solid 1px;
+}
+.dark-mode .option4{
+  color: white;
+  background-color: #232323;
+  border: #555555 solid 1px;
+}
+
+
+.dark-mode .se{
+  color: white;
+}
+
+.dark-mode input {
+  color: white;
+  background-color: black;
+}
+
+
+.dark-mode p {
+  color: white;
+
+}
+
+
 
 }

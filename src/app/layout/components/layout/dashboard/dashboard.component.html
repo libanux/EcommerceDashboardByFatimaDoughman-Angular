@@ -1,29 +1,29 @@
-<div class="w-full  p-5  ">
-<div class="flex gap-8">
-  <div class="flex-col gap-8 flex w-[70%] ">
-  <div class="flex  gap-6 w-[50%] ">
-  <div class="flex border border-neutral-500 rounded-lg p-6  justify-between bg-white option1" [ngClass]="{'dark-mode': isDarkMode}">
+<div class="w-full m-4">
+<div class="flex  gap-8 ">
+  <div class="flex-col gap-8 flex w-[90%]  ">
+  <div class="flex  gap-6 w-full">
+  <div class="flex border border-neutral-500 rounded-lg p-4 w-[75%] justify-between bg-white option1">
     <div class="flex flex-col gap-10">
-       <p class="font-bold text-lg ">Average Revenue</p>
+       <p class="font-bold ">Average Revenue</p>
     <p class="text-4xl font-bold">$25,865</p>
    </div>
    <ag-charts-angular [options]="options1" ></ag-charts-angular>
   </div>
- <div class="flex border border-neutral-500 rounded-lg p-6 justify-between bg-white ">
-  <div class="flex flex-col gap-10">
-     <p class="font-bold text-lg">Custom Revenue</p>
-  <p class="text-4xl font-bold">5,865</p>
+ <div class="flex border border-neutral-500 rounded-lg p-4  justify-between bg-white option2 w-[75%]">
+  <div class="flex flex-col gap-10 ">
+     <p class="font-bold ">Custom Revenue</p>
+  <p class="text-4xl font-bold pr-8">5,865</p>
  </div>
 <ag-charts-angular [options]="options2" ></ag-charts-angular>
 </div>
 </div>
-<div class="border border-neutral-500 rounded-lg bg-white justify-center flex flex-col">
+<div class="border border-neutral-500 rounded-lg bg-white justify-center flex flex-col option4 ">
   <ag-charts-angular [options]="options4"></ag-charts-angular>
 </div>
 
 
 
-<div class="border border-neutral-500 rounded-lg bg-white p-4 flex flex-col table " [ngClass]="{'dark-mode': isDarkMode}">
+<div class="border border-neutral-500 rounded-lg bg-white p-4 flex flex-col table1 w-full" [ngClass]="{'dark-mode': isDarkMode}">
   <p class="font-semibold">Recent invoice</p>
   <table mat-table [dataSource]="ELEMENT_DATA" class="mat-elevation-z8" [ngClass]="{'dark-mode': isDarkMode}">
 
@@ -75,8 +75,8 @@
 </div>
 
   </div>
-<div class="flex flex-col gap-4 ">
-  <div class="border border-neutral-500 rounded-lg bg-white p-4 flex flex-col justify-center items-center" [ngClass]="{'dark-mode': isDarkMode}">
+<div class="flex flex-col gap-6  w-full ">
+  <div class="border border-neutral-500 rounded-lg bg-white  flex flex-col justify-center items-center option3 p-2 w-full "  [ngClass]="{'dark-mode': isDarkMode}">
   <div class="chart-container">
     <ag-charts-angular [options]="options3"></ag-charts-angular>
   </div>
@@ -107,10 +107,10 @@
     </div>
   </div>
 </div>
-<div class="border border-neutral-500 rounded-lg bg-white p-4 flex flex-col h-full gap-3 product " [ngClass]="{'dark-mode': isDarkMode}">
+<div class="border border-neutral-500 rounded-lg bg-white  flex flex-col h-full gap-3 product w-full p-2" [ngClass]="{'dark-mode': isDarkMode}">
   <p class="font-semibold">Top Product</p>
-  <div class="border rounded-lg flex items-center h-[6%] border-neutral-500 p-2 mb-4">
-     <i class="material-icons m-2">search</i> <input type="text" #searchInput id="searchInput"  id="searchInput" placeholder="Search" (input)="onInputChanged(searchInput.value)" class="outline-none  "[ngClass]="{'dark-mode': isDarkMode}">
+  <div class="border rounded-lg flex items-center h-[6%] border-neutral-500 p-2 mb-4 input">
+     <i class="material-icons m-2 se">search</i> <input type="text" #searchInput id="searchInput"  id="searchInput" placeholder="Search" (input)="onInputChanged(searchInput.value)" class="outline-none  "[ngClass]="{'dark-mode': isDarkMode}">
     <button class="bg-black text-white p-1 rounded-sm" (click)="filterProducts(searchInput.value) ">Enter</button></div>
   @for (item of filteredProducts; track item) {
   <div class="flex items-center gap-4" >

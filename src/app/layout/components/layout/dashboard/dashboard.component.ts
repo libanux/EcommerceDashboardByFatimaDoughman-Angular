@@ -1,10 +1,10 @@
 import { Component,  OnInit} from '@angular/core';
 import { AgChartsAngular } from "ag-charts-angular";
-import { AgChartOptions, AgChartThemeName, AgPieSeriesOptions } from "ag-charts-community";
+import { AgChartOptions, AgChartBackground, AgPieSeriesOptions } from "ag-charts-community";
  import { MatTableModule} from '@angular/material/table';
 import { CommonModule, DatePipe } from '@angular/common';
 import { DarkmodeService } from '../../../../shared/dark-light_mode/darkmode.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MatDivider } from '@angular/material/divider';
 
  export interface PeriodicElement {
@@ -16,9 +16,6 @@ import { MatDivider } from '@angular/material/divider';
   account:string;
   position:number;
 }
-
-
-
 
 @Component({
   selector: 'app-dashboard',
@@ -38,7 +35,7 @@ export class DashboardComponent implements OnInit{
   ELEMENT_DATA: PeriodicElement[] = [];
   isDarkMode: boolean = false;
   isDarkMode$!: Observable<boolean> ;
-
+  darkModeSubscription: Subscription | undefined;
 
 
 
@@ -47,8 +44,7 @@ export class DashboardComponent implements OnInit{
     this.filteredProducts = this.products;
 
     this.ELEMENT_DATA = [
-      { position: 1, Customername: 'Hydrogen', city:" lebanon", orderdate: new Date(), status: 'Active', account: 'Acc1',
-        IDcustomer: '#5431'
+      { position: 1, Customername: 'Hydrogen', city:" lebanon", orderdate: new Date(), status: 'Active', account: 'Acc1',IDcustomer: '#5431'
       },
       { position: 2, Customername: 'Helium', city:"us", orderdate: new Date(), status: 'Inactive', account: 'Acc2',
         IDcustomer: '#8373'
@@ -67,14 +63,17 @@ export class DashboardComponent implements OnInit{
       },
     ];
 
+
+
     this.options1 = {
+
       data: this.getData1(),
       series: [
         {
           type: "area",
           xKey: "day",
           yKey: "subscriptions",
-          fill:"#00FF00",
+          fill: this.isDarkMode ? '#404040' : '#FFC000',
         },
       ],
       width: 250,
@@ -95,7 +94,6 @@ export class DashboardComponent implements OnInit{
       width: 250,
       height: 160,
     };
-
 
     this.options3 = {
      data: this.getData3(),
@@ -158,12 +156,41 @@ export class DashboardComponent implements OnInit{
   };
 }
 
-  ngOnInit(): void {
 
+ngOnInit(): void {
 
-
+  this.darkModeService.isDarkMode$.subscribe(isDarkMode => {
+    this.updateChartTheme(isDarkMode);
+  });
 }
 
+updateChartTheme(isDarkMode: boolean): void {
+  const chartBackground: AgChartBackground = {
+    fill: isDarkMode ? '#232323' : '#ffffff',
+    visible: true,
+  };
+  const areaFillColor = isDarkMode ? '#C1EF00' : '#04B900';
+  this.options1.background = chartBackground;
+  this.options2.background = chartBackground;
+  this.options3.background = chartBackground;
+  this.options4.background = chartBackground;
+
+  this.options1.series?.forEach(series => {
+    if (series.type === 'area') {
+      series.fill = areaFillColor;}
+
+
+
+
+  });
+
+
+  this.options1 = { ...this.options1 };
+  this.options2 = { ...this.options2 };
+  this.options3 = { ...this.options3 };
+  this.options4 = { ...this.options4 };
+
+}
 
 
   getData1() {
@@ -256,3 +283,5 @@ export class DashboardComponent implements OnInit{
       }
     }
 }
+
+
