@@ -1,10 +1,10 @@
 import { Component} from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { Router, RouterOutlet } from '@angular/router';
-import { ApplicationRoutes } from '../../../shared/enums/application-routes.enum';
-import { DarkLight_modeComponent } from '../../../shared/dark-light_mode/dark-light_mode.component';
+import { ApplicationRoutes } from '../../../../shared/enums/application-routes.enum';
+import { DarkLight_modeComponent } from '../../../../shared/dark-light_mode/dark-light_mode.component';
 import { CommonModule } from '@angular/common';
-import { DarkmodeService } from '../../../shared/dark-light_mode/darkmode.service';
+import { DarkmodeService } from '../../../../shared/dark-light_mode/darkmode.service';
 
 @Component({
   selector: 'app-layout',
@@ -20,8 +20,8 @@ constructor( private router:Router,private darkModeService: DarkmodeService,){}
 
 
 ngOnInit() {
-  this.activeSection = 'dashboard';
-  this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.dashboard}`]);
+  this.activeSection = 'products';
+  this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.products}`]);
   this.darkModeService.isDarkMode$.subscribe(isDarkMode => {
     this.isDarkMode = isDarkMode;
 
@@ -37,12 +37,19 @@ ngOnInit() {
     this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.analytics}`]);
 
   }
+
+  onproducts(){
+    this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.products}`]);
+
+  }
   setActiveSection(section: string) {
     this.activeSection = section;
     if (section === ApplicationRoutes.analytics) {
       this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.analytics}`]);
     }else if (section === ApplicationRoutes.dashboard) {
       this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.dashboard}`]);
-    }
+    }else if (section === ApplicationRoutes.products) {
+      this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.products}`]);
   }
+}
 }

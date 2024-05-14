@@ -21,9 +21,14 @@
 <span class="material-symbols-outlined ">analytics</span>
   <p class="text-base text-neutral-700 mt-0 flex" (click)="onanalytics()" [class.text-white]="activeSection === 'analytics'"> Analytics </p>
 </button>
-<button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start px-3 hover:text-white gap-2 text-neutral-700"><span class="material-symbols-outlined ">package_2</span>
-  <p class="text-base text-neutral-700 mt-0 flex"> Products </p>
+
+<button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start px-3 hover:text-white gap-2 text-neutral-700"
+[class.bg-primary]="activeSection === 'products'"
+[class.text-white]="activeSection === 'products'"
+(click)="setActiveSection('products')"><span class="material-symbols-outlined ">package_2</span>
+  <p class="text-base text-neutral-700 mt-0 flex" (click)="onproducts()" [class.text-white]="activeSection === 'products'"> Products </p>
 </button>
+
 <button class="rounded-lg hover:bg-primary flex items-center py-2 justify-start px-3 hover:text-white gap-2 text-neutral-700"><span class="material-symbols-outlined ">local_shipping</span>
   <p class="text-base text-neutral-700 mt-0 flex"> Orders </p>
 </button>
@@ -38,7 +43,7 @@
   <p class="text-base text-neutral-700 mt-0 flex"> Logout</p>
 </button>
 </div>
-<div class="w-[80%]">
+<div class="w-[84%]">
    <router-outlet></router-outlet>
   </div>
 </div>

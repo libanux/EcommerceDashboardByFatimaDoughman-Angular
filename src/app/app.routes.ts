@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { ApplicationRoutes } from './shared/enums/application-routes.enum';
-import { LayoutComponent } from './layout/components/layout/layout.component';
+import { LayoutComponent } from './layout/components/layout/layout/layout.component';
 
 export const routes: Routes = [
       {
@@ -20,6 +20,11 @@ export const routes: Routes = [
         path: ApplicationRoutes.analytics,
         loadComponent: () => import('./layout/components/layout/analytics/analytics.component'
         ).then(mod => mod.AnalyticsComponent)
+       },
+       {
+        path: ApplicationRoutes.products,
+        loadComponent: () => import('./layout/components/layout/products/products.component'
+        ).then(mod => mod.ProductsComponent)
        },
             ]
 

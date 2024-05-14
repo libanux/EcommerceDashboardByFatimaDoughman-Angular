@@ -1,0 +1,36 @@
+<div class="w-full bg-neutral-400 flex overflow-y-auto p-10" [ngClass]="{'dark-mode': isDarkMode}">
+  <div class="border border-neutral-500 rounded-lg bg-white  flex flex-col h-full gap-3 product w-full p-6" [ngClass]="{'dark-mode': isDarkMode}">
+    <p class="font-semibold text-2xl ">Top Product</p>
+    <div class="border rounded-lg flex items-center  border-neutral-500 p-2 mb-4 input w-full input">
+       <i class="material-icons m-2 se">search</i>
+       <input type="text" #searchInput id="searchInput"  id="searchInput" placeholder="Search" (input)="onInputChanged(searchInput.value)"  class="w-full outline-none input" [ngClass]="{'dark-mode': isDarkMode}">
+      <button class="bg-primary  text-white p-2 rounded-lg " (click)="filterProducts(searchInput.value) ">Enter</button>
+    </div>
+    @for (item of filteredProducts; track item) {
+    <div class="flex items-center gap-4" >
+    <img src={{item.image}} width="70px">
+    <div class="flex flex-col">
+      <p class="font-semibold text-lg">{{item.title}}</p>
+      <div class="flex items-center gap-12 ">
+      <p class="text-sm text-neutral-700">ID: {{ item.id }}</p>
+      <p class="text-sm text-neutral-700">Price: ${{ item.price }}</p>
+      <p class="text-sm text-neutral-700">Sizes: {{ item.sizes.join(', ') }}</p>
+      <p class="text-sm text-neutral-700">Availability: {{ item.availability }}</p>
+      <p class="text-sm text-neutral-700">Average Rating: {{ item.averageRating }}</p>
+      <p class="text-sm text-neutral-700">Warranty: {{ item.warranty }}</p>
+      </div>
+    </div>
+      <div class="ml-10">
+        <p class="text-[#ff0000] bg-[#ffe6e6] items-center flex rounded-lg px-3 py-1 gap-1 justify-start">
+          <span class="material-icons prod">trending_up</span>
+          {{ item.percent }}%
+        </p>
+      </div>
+
+          </div>
+
+
+  <hr class="text-neutral-500">
+  }  </div>
+  </div>
+
