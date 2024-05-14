@@ -5,6 +5,7 @@ export enum ApplicationRoutes {
     darklight='dark_light',
     dashboard='dashboard',
     analytics='analytics',
-    products='products'
+    products='products',
+    orders='orders'
 
 }

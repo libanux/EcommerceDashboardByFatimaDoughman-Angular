@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { DarkLight_modeComponent } from '../shared/dark-light_mode/dark-light_mode.component';
 import { DarkmodeService } from '../shared/dark-light_mode/darkmode.service';
@@ -7,6 +7,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LoginFormGroupService } from './form-group/login-form-group.service';
 import { ApplicationRoutes } from '../shared/enums/application-routes.enum';
 import { Router } from '@angular/router';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
   imports:[CommonModule,TranslateModule,DarkLight_modeComponent,ReactiveFormsModule],
   standalone:true,
+  animations: [
+    trigger('moveLeftRight', [
+      state('left', style({
+        transform: 'translateX(-10%)'
+      })),
+      state('right', style({
+        transform: 'translateX(0%)'
+      })),
+      transition('left => right', animate('200ms ease-out')),
+      transition('right => left', animate('200ms ease-out'))
+    ])
+  ]
 })
 export class LoginComponent implements OnInit {
   fg: FormGroup = new FormGroup({});
   isArabic: boolean = false;
   selectedLanguage: string | undefined;
+  public imagePosition: string = ''; // Initial position of the image
+
+  moveLeft() {
+    this.imagePosition = 'left';
+  }
+
+  moveRight() {
+    this.imagePosition = 'right';
+  }
+
+  @HostListener('touchstart')
+  onTouchStart() {
+    this.moveLeft();
+  }
+
+  @HostListener('touchend')
+  onTouchEnd() {
+    this.moveRight();
+  }
 
   constructor(private translate: TranslateService,private darkModeService: DarkmodeService,
    private  loginformgroupservice:LoginFormGroupService, private router:Router

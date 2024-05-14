@@ -23,7 +23,7 @@
 
 
 .dark-mode .bg-neutral-400 {
-  background-color: #1e1e1e;
+  background-color: #000000;
 }
 
 .dark-mode .label{
@@ -79,10 +79,26 @@
 } */
 /* } */
 
+
+
 .dark-mode {
-  background-color: #050619;
+  background-color: #000000;
   color: #ffffff;
 }
+
+.dark-mode .tt {
+ border: gray solid;
+  color: #ffffff;
+  background-color: #000000;
+
+}
+
+.dark-mode  .input {
+  border: gray solid;
+   color: #000000;
+
+ }
+
 
 
 .dark-mode .login-form {

@@ -26,6 +26,11 @@ export const routes: Routes = [
         loadComponent: () => import('./layout/components/layout/products/products.component'
         ).then(mod => mod.ProductsComponent)
        },
+       {
+        path: ApplicationRoutes.orders,
+        loadComponent: () => import('./layout/components/layout/orders/orders.component'
+        ).then(mod => mod.OrdersComponent)
+       },
             ]
 
 

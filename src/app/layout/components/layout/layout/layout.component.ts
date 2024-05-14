@@ -20,8 +20,8 @@ constructor( private router:Router,private darkModeService: DarkmodeService,){}
 
 
 ngOnInit() {
-  this.activeSection = 'products';
-  this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.products}`]);
+  this.activeSection = 'dashboard';
+  this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.dashboard}`]);
   this.darkModeService.isDarkMode$.subscribe(isDarkMode => {
     this.isDarkMode = isDarkMode;
 
@@ -42,6 +42,14 @@ ngOnInit() {
     this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.products}`]);
 
   }
+  onorders(){
+    this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.orders}`]);
+
+  }
+  onlogout(){
+    this.router.navigate([`${ApplicationRoutes.Empty}`]);
+
+  }
   setActiveSection(section: string) {
     this.activeSection = section;
     if (section === ApplicationRoutes.analytics) {
@@ -50,6 +58,9 @@ ngOnInit() {
       this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.dashboard}`]);
     }else if (section === ApplicationRoutes.products) {
       this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.products}`]);
-  }
-}
+  }else if (section === ApplicationRoutes.orders) {
+    this.router.navigate([`${ApplicationRoutes.layout}/${ApplicationRoutes.orders}`]);
+}else if (section === 'logout') {
+  this.router.navigate([`${ApplicationRoutes.Empty}`]);
+}}
 }

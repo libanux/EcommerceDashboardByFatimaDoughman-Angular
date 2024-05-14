@@ -1,0 +1,39 @@
+<div class="w-full p-4  ">
+  <div class="flex border border-neutral-500 rounded-lg p-4 bg-white  w-full dark" [ngClass]="{'dark-mode': isDarkMode}">
+
+    <div class="w-full">
+      <p-table
+        [value]="Customer"
+        [paginator]="true"
+        [rows]="10"
+        [tableStyle]="{ 'width': '100%' }"
+        [rowsPerPageOptions]="[5, 10, 15]"
+        [class.dark-mode-table]="isDarkMode"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width:14%">NO.</th>
+            <th style="width:14%">Customer Name</th>
+            <th style="width:14%">City</th>
+            <th style="width:14%">Order Date</th>
+            <th style="width:14%">Status</th>
+            <th style="width:14%">Account</th>
+            <th style="width:14%">ID Customer</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+          <tr>
+            <td>{{ customer.no }}</td>
+            <td>{{ customer.Customername }}</td>
+            <td>{{ customer.city }}</td>
+            <td>{{ customer.orderdate | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ customer.status }}</td>
+            <td>{{ customer.account }}</td>
+            <td>{{ customer.IDcustomer }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+

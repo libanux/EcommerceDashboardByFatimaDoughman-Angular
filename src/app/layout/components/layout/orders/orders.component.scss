@@ -1,0 +1,21 @@
+::ng-deep {
+  .dark-mode .dark {
+    color: #fff;
+    background-color: #232323 ;
+    border-color: #232323;
+  }
+  .dark-mode .dark-mode-table {
+    color: #fff;
+    background-color: #232323 !important;
+    border-color: #ffffff;
+  }
+  .dark-mode .dark-mode-table th,
+  .dark-mode .dark-mode-table td,
+  .dark-mode .p-paginator {
+    color: #fff;
+    background-color: #232323;
+    border-color: #565656;
+  }
+
+
+}
